@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+// MARK: - NavigationBackButton
+/// A custom back button used in navigation bars to go back to the previous screen.
 struct NavigationBackButton: View {
     var body: some View {
+        // MARK: - Chevron Icon
         Image(systemName: "chevron.left")
             .font(.system(size: 16, weight: .semibold))
             .foregroundColor(.white)
