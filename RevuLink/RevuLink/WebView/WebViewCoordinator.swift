@@ -27,7 +27,6 @@ class WebViewCoordinator: NSObject, WKNavigationDelegate {
     }
 
     /// Called when navigation finishes, updates canGoBack and isLoading.
-    /// Also checks if the page is empty and reloads if needed.
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         parent.canGoBack = webView.canGoBack
         parent.isLoading = false
