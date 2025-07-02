@@ -17,19 +17,16 @@ struct VideoPlayerView: View {
             // MARK: - Video Player
             // Attempt to find the "intro.mp4" file in the app bundle and play it.
             if let url = Bundle.main.url(forResource: "intro", withExtension: "mp4") {
-                // Create a VideoPlayer view with the AVPlayer instance using the found video URL.
+                // Create a VideoPlayer view with the AVPlayer
                 VideoPlayer(player: AVPlayer(url: url))
                     .ignoresSafeArea()
                     // MARK: - onAppear Modifier
-                    // When the video player appears on the screen, configure the audio session and start playback.
                     .onAppear {
-                        // Configure the audio session for video playback.
                         do {
-                            // Set the audio session category to playback and the mode to movie playback.
                             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
                             try AVAudioSession.sharedInstance().setActive(true)
                         } catch {
-                            // Print an error message if setting the audio session fails.
+                            // Print error message if setting the audio session fails.
                             print("Failed to set AVAudioSession: \(error)")
                         }
 
@@ -40,7 +37,7 @@ struct VideoPlayerView: View {
 
             } else {
                 // MARK: - Fallback Text
-                // If the video file is not found in the bundle, display a fallback message.
+                // If the video file is not found in the bundle, display message.
                 Text("Video not found")
                     .foregroundColor(.red)
             }
